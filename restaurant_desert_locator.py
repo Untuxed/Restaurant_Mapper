@@ -9,8 +9,9 @@ import geopandas as gpd
 from shapely.geometry import Point as ShapelyPoint
 from shapely.geometry import Polygon, MultiPolygon
 import matplotlib.pyplot as plt
+import os
 
-res_name = "Denny's"
+res_name = "chili"
 
 def load_and_prep_data(csv_file=f"{res_name}_coordinates_osm.csv"):
     """Load locations and return as list of coordinates"""
@@ -19,7 +20,7 @@ def load_and_prep_data(csv_file=f"{res_name}_coordinates_osm.csv"):
 
 def get_us_boundary():
     """Get continental US boundary using geopandas"""
-    usa = gpd.read_file("/Users/liammartin/Downloads/110m_cultural/ne_110m_admin_0_countries.shp")
+    usa = gpd.read_file(os.path.join(os.path.dirname(__file__), "map_data/ne_110m_admin_0_countries.shp"))
     # Filter for continental US (excluding Alaska and Hawaii)
     cont_usa = usa[usa['NAME'] == 'United States of America'].explode()
     cont_usa = cont_usa[~cont_usa.geometry.apply(lambda x: x.centroid.y > 50)]  # Exclude Alaska

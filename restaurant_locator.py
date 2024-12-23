@@ -14,7 +14,7 @@ def format_time(seconds):
     """
     return str(timedelta(seconds=round(seconds)))
 
-def get_rest_coordinates(county_dir='/Users/liammartin/Downloads/us_counties/dist/'):
+def get_rest_coordinates(county_dir = os.path.join(os.path.dirname(__file__), 'county_data/')):
     """
     Fetch latitude and longitude coordinates for res_name restaurants in the US
     using OpenStreetMap's Nominatim service, with timing information.

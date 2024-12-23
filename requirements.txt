@@ -1,0 +1,9 @@
+pandas
+numpy
+geopy
+folium
+tqdm
+contextily
+geopandas
+shapely
+matplotlib
