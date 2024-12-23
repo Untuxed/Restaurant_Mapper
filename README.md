@@ -69,6 +69,7 @@ python restaurant_desert_locator.py
 ## Notes
 
 - Requires US county data in `./county_data/`
+- Requires Open Street Map .osm file in `./map_data/`
 - Uses OpenStreetMap data via Nominatim API
 - Respects API rate limits
 - Files are saved in working directory
